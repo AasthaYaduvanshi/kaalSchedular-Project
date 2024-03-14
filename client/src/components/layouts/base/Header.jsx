@@ -54,7 +54,7 @@ export default function Header() {
       <Container>
         <ToolbarStyle>
           <img src={companyLogo} alt={BRAND_NAME} style={{ width: '40px', height: '40px', marginRight: '10px' }} />
-          <Typography variant="h6" sx={{ color:darkMode?'white':'black',fontSize: 19, flexGrow: 1 }}>
+          <Typography style={{ fontWeight: 'bold', cursor: 'pointer'}} variant="h6" sx={{ color:darkMode?'white':'black',fontSize: 19, flexGrow: 1 }}>
             {BRAND_NAME}
           </Typography>
 

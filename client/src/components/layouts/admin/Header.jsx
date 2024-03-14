@@ -60,8 +60,8 @@ function Header() {
     <AppBarStyle>
       <Container>
         <ToolbarStyle>
-          <img src={companyLogo} alt={BRAND_NAME} style={{ width: '40px', height: '40px', marginRight: '10px' }} />
-          <Typography variant="h6" sx={{ fontSize: 19, flexGrow: 1 }}>
+        <img src={companyLogo} alt={BRAND_NAME} style={{ cursor: 'pointer', width: '40px', height: '40px', marginRight: '10px' }} />
+          <Typography style={{ fontWeight: 'bold', cursor: 'pointer'}} variant="h6" sx={{ color:darkMode?'white':'black',fontSize: 19, flexGrow: 1 }}>
             {BRAND_NAME}
           </Typography>
 
