@@ -3,6 +3,7 @@ const Teacher = require("../models/Teachers")
 const Room = require("../models/Rooms")
 const Course = require("../models/Course")
 const Assigned = require("../models/AssignedNumbers")
+
 const profile = async (req, res, next) => {
   try {
     const user = req.user
@@ -36,6 +37,21 @@ const createTeacher = async (req, res, next) => {
       message: "Failed to create teacher",
       error: error.message,
     })
+  }
+}
+
+const deleteTeacher = async (req, res, next) => {
+  try {
+    const { id } = await req.body
+
+    const response = await Teacher.findByIdAndDelete({ _id: id })
+    console.log(response)
+    if (!response) return res.status(400).json("Teacher not found")
+
+    return res.status(200).json("deleted successfully")
+  } catch (error) {
+    console.log("Error deleting teacher:", error)
+    return res.status(500).json("Internal server error")
   }
 }
 
@@ -275,6 +291,7 @@ const deleteCourse = async (req, res, next) => {
 module.exports = {
   profile,
   createTeacher,
+  deleteTeacher,
   GetTeaachersByPage,
   CreateRoom,
   DeleteRoom,

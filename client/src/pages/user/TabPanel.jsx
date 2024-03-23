@@ -35,6 +35,7 @@ import Grid from "@mui/material/Grid"
 import graduated from "@assets/images/graduated.jpg"
 import AddCourse from "./AddCourse"
 import Generate from "./Generate"
+import toast from "react-hot-toast"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -278,7 +279,6 @@ export default function FullWidthTabs() {
                       </Button>
                       <Button
                         onClick={async () => {
-                          console.log(row.roomNumber)
                           const response = await api.delete(
                             "/api/user/delete-room",
                             {
@@ -288,6 +288,7 @@ export default function FullWidthTabs() {
                             }
                           )
                           fetchDataClasses()
+                          toast.success("Room Deleted successfully")
                         }}
                       >
                         Delete
@@ -373,8 +374,17 @@ export default function FullWidthTabs() {
                         Edit
                       </Button>
                       <Button
-                        onClick={() => {
-                          console.log(row._id)
+                        onClick={async () => {
+                          const response = await api.delete(
+                            "/api/user/delete-teacher",
+                            {
+                              data: {
+                                id: row._id,
+                              },
+                            }
+                          )
+                          fetchData()
+                          toast.success("Teacher deleted successfully")
                         }}
                       >
                         Delete
