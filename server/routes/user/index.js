@@ -11,6 +11,8 @@ router.use("/fetch-teachers", userController.GetTeaachersByPage)
 
 router.use("/create-room", userController.CreateRoom)
 
+router.use("/delete-room", userController.DeleteRoom)
+
 router.use("/fetch-rooms", userController.GetRoomsByPage)
 
 router.use('/fetch-all-teachers', userController.FetchAllTeachers)
