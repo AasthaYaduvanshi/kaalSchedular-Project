@@ -1,9 +1,9 @@
-import { Outlet } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Header from "./Header";
-import Footer from "@pages/user/Footer";
-import { APPBAR_DESKTOP, APPBAR_MOBILE } from "components/data/constrain";
+import { Outlet } from "react-router-dom"
+import { styled } from "@mui/material/styles"
+import Box from "@mui/material/Box"
+import Header from "./Header"
+import Footer from "@pages/user/Footer"
+import { APPBAR_DESKTOP, APPBAR_MOBILE } from "components/data/constrain"
 
 const MainStyle = styled("main")(({ theme }) => ({
   flexGrow: 1,
@@ -22,7 +22,7 @@ const MainStyle = styled("main")(({ theme }) => ({
     paddingRight: 15,
     minHeight: "auto",
   },
-}));
+}))
 
 const UserLayout = ({ children }) => {
   return (
@@ -31,10 +31,10 @@ const UserLayout = ({ children }) => {
         <Header />
 
         <MainStyle>{children || <Outlet />}</MainStyle>
-        <Footer/>
+        <Footer />
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default UserLayout;
+export default UserLayout

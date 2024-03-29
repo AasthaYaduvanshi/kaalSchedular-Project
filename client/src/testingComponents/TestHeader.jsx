@@ -12,10 +12,15 @@ import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import AdbIcon from "@mui/icons-material/Adb"
+// import Link from "@mui/material/Link"
 import { Link } from "react-router-dom"
 
 import { ColorModeContext } from "@contexts/DarkModeContext"
-import { BRAND_NAME } from "components/data/constrain"
+import {
+  APPBAR_DESKTOP,
+  APPBAR_MOBILE,
+  BRAND_NAME,
+} from "components/data/constrain"
 import useAuth from "@hooks/useAuth"
 const pages = ["Products", "Pricing", "Blog"]
 import companyLogo from "@assets/images/brand.png"
