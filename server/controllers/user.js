@@ -20,9 +20,17 @@ const profile = async (req, res, next) => {
 
 const createTeacher = async (req, res, next) => {
   try {
-    const teacherData = req.body
+    console.log(req.body)
+    const { teacherData, userId } = req.body
+    const { name, status, location, phoneNumber } = teacherData
 
-    const newTeacher = await Teacher.create(teacherData)
+    const newTeacher = await Teacher.create({
+      name,
+      status,
+      location,
+      phoneNumber,
+      userId,
+    })
 
     return res.status(200).json({
       success: true,
@@ -57,14 +65,14 @@ const deleteTeacher = async (req, res, next) => {
 
 const GetTeaachersByPage = async (req, res, next) => {
   try {
-    const { page, pageSize } = req.query
+    const { page, pageSize, userId } = req.query
     const pageNumber = parseInt(page) || 1
     const limit = parseInt(pageSize) || 5
 
     const totalCount = await Teacher.countDocuments()
     const totalPages = Math.ceil(totalCount / limit)
 
-    const teachers = await Teacher.find()
+    const teachers = await Teacher.find({ userId: userId })
       .skip((pageNumber - 1) * limit)
       .limit(limit)
 
@@ -82,9 +90,12 @@ const GetTeaachersByPage = async (req, res, next) => {
 
 const CreateRoom = async (req, res, next) => {
   try {
-    const { roomNumber } = req.body
+    const { roomNumber, userId } = req.body
 
-    const existingRoom = await Room.findOne({ roomNumber })
+    const existingRoom = await Room.findOne({
+      roomNumber: roomNumber,
+      userId: userId,
+    })
 
     if (existingRoom) {
       return res.status(409).json({
@@ -92,7 +103,7 @@ const CreateRoom = async (req, res, next) => {
         message: `Room with room number ${roomNumber} already exists`,
       })
     }
-    const newRoom = await Room.create({ roomNumber })
+    const newRoom = await Room.create({ roomNumber, userId })
 
     return res.status(200).json({
       success: true,
@@ -127,14 +138,14 @@ const DeleteRoom = async (req, res, next) => {
 
 const GetRoomsByPage = async (req, res, next) => {
   try {
-    const { page, pageSize } = req.query
+    const { page, pageSize, userId } = req.query
     const pageNumber = parseInt(page) || 1
     const limit = parseInt(pageSize) || 5
 
     const totalCount = await Room.countDocuments()
     const totalPages = Math.ceil(totalCount / limit)
 
-    const rooms = await Room.find()
+    const rooms = await Room.find({ userId })
       .skip((pageNumber - 1) * limit)
       .limit(limit)
 
@@ -151,13 +162,15 @@ const GetRoomsByPage = async (req, res, next) => {
 }
 
 const FetchAllTeachers = async (req, res, next) => {
+  const { page, pageSize, userId } = req.query
   try {
-    const teachers = await Teacher.find({})
+    const teachers = await Teacher.find({ userId })
 
     const modifiedTeachers = []
     for (const teacher of teachers) {
       const assignedTeacher = await Assigned.findOne({
         teacherName: teacher.name,
+        userId: userId,
       })
 
       // Check if the teacher is assigned to two subjects

@@ -36,6 +36,7 @@ import graduated from "@assets/images/graduated.jpg"
 import AddCourse from "./AddCourse"
 import Generate from "./Generate"
 import toast from "react-hot-toast"
+import AuthContext from "@contexts/AuthContext"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -116,6 +117,8 @@ Item.propTypes = {
 }
 
 export default function FullWidthTabs() {
+  const { user } = React.useContext(AuthContext)
+
   const theme = useTheme()
   const [value, setValue] = React.useState(0)
 
@@ -143,7 +146,7 @@ export default function FullWidthTabs() {
     const response = await api.get(
       `http://localhost:4000/api/user/fetch-teachers?page=${
         pageno + 1
-      }&pageSize=${rowsPerPagesent}`
+      }&pageSize=${rowsPerPagesent}&userId=${user.userId}`
     )
     const data = response.data
 
@@ -155,7 +158,7 @@ export default function FullWidthTabs() {
     const response = await api.get(
       `http://localhost:4000/api/user/fetch-rooms?page=${
         pageforclass + 1
-      }&pageSize=${rowsPerPageforclass}`
+      }&pageSize=${rowsPerPageforclass}&userId=${user.userId}`
     )
     const data = response.data
     console.log(data)

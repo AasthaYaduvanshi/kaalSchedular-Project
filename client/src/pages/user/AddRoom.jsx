@@ -4,8 +4,10 @@ import { TextField, Button } from "@mui/material"
 import { SubmitButton } from "@pages/auth/common"
 import toast from "react-hot-toast"
 import useAxiosPrivate from "@hooks/useAxiosPrivate"
+import AuthContext from "@contexts/AuthContext"
 
 export default function AddRoom({ handleAddRoomClose }) {
+  const { user } = React.useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -20,6 +22,7 @@ export default function AddRoom({ handleAddRoomClose }) {
     try {
       const response = await api.post("/api/user/create-room", {
         roomNumber: data.roomNumber,
+        userId: user.userId,
       })
       // Check if the request was successful
       if (response?.data?.success) {

@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form"
 import { SubmitButton } from "@pages/auth/common"
 import useAxiosPrivate from "@hooks/useAxiosPrivate"
 import toast from "react-hot-toast"
+import AuthContext from "@contexts/AuthContext"
 
 export default function AddTeachers({ handleAddUserClose, getConfirmation }) {
+  const { user } = React.useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -18,7 +20,10 @@ export default function AddTeachers({ handleAddUserClose, getConfirmation }) {
   const api = useAxiosPrivate()
   const onSubmit = async (data) => {
     try {
-      const response = await api.post("/api/user/create-teacher", data)
+      const response = await api.post("/api/user/create-teacher", {
+        teacherData: data,
+        userId: user.userId,
+      })
 
       if (response.data.success) {
         toast.success("Teacher created successfully")
