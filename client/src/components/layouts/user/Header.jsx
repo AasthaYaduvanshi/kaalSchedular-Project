@@ -13,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import AdbIcon from "@mui/icons-material/Adb"
 import { Link } from "react-router-dom"
+// import useAuth from "@hooks/useAuth"
 
 import { ColorModeContext } from "@contexts/DarkModeContext"
 import { BRAND_NAME } from "components/data/constrain"
@@ -24,6 +25,8 @@ const settings = [
   { title: "Profile", url: "/user/profile" },
 ]
 function TestHeader() {
+  const { logout } = useAuth()
+
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
@@ -156,6 +159,17 @@ function TestHeader() {
                   </Link>
                 </>
               ))}
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: darkMode ? "#fff" : "#000",
+                  }}
+                  onClick={logout}
+                >
+                  Logout
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
