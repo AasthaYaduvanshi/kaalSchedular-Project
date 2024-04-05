@@ -18,7 +18,7 @@ import { Link } from "react-router-dom"
 import { ColorModeContext } from "@contexts/DarkModeContext"
 import { BRAND_NAME } from "components/data/constrain"
 import useAuth from "@hooks/useAuth"
-const pages = ["Products", "Pricing", "Blog"]
+// const pages = ["Products", "Pricing", "Blog"]
 import companyLogo from "@assets/images/brand.png"
 const settings = [
   { title: "Dashboard", url: "/user/dashboard" },
@@ -100,16 +100,16 @@ function TestHeader() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {/* {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -117,7 +117,7 @@ function TestHeader() {
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
