@@ -162,9 +162,9 @@ const GetRoomsByPage = async (req, res, next) => {
 }
 
 const FetchAllTeachers = async (req, res, next) => {
-  const { page, pageSize, userId } = req.query
+  const { userId } = req.query
   try {
-    const teachers = await Teacher.find({ userId })
+    const teachers = await Teacher.find({ userId: userId })
 
     const modifiedTeachers = []
     for (const teacher of teachers) {
