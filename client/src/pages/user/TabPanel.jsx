@@ -273,13 +273,13 @@ export default function FullWidthTabs() {
                     <TableCell>{row._id}</TableCell>
                     <TableCell>{row.roomNumber}</TableCell>
                     <TableCell align="right">
-                      <Button
+                      {/* <Button
                         onClick={() => {
                           console.log(row._id)
                         }}
                       >
                         Edit
-                      </Button>
+                      </Button> */}
                       <Button
                         onClick={async () => {
                           const response = await api.delete(
@@ -369,13 +369,13 @@ export default function FullWidthTabs() {
                     <TableCell>{row.location}</TableCell>
                     <TableCell>{row.phoneNumber}</TableCell>
                     <TableCell align="right">
-                      <Button
+                      {/* <Button
                         onClick={() => {
                           console.log(row._id)
                         }}
                       >
                         Edit
-                      </Button>
+                      </Button> */}
                       <Button
                         onClick={async () => {
                           const response = await api.delete(
