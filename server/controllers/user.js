@@ -3,7 +3,7 @@ const Teacher = require("../models/Teachers")
 const Room = require("../models/Rooms")
 const Course = require("../models/Course")
 const Assigned = require("../models/AssignedNumbers")
-
+const config = require("../config")
 const nodemailer = require("nodemailer")
 // const mailer = require("../utils/nodeMailer")
 
@@ -313,8 +313,8 @@ const createContact = async (req, res, next) => {
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: "kaalschedular@gmail.com", // host email address
-        pass: "vner gavh wfbi cink", // host app password(use app password, if don't have , got to google accout> enable two step verification>  go to app password and generate password)
+        user: process.env.NODEMAILER_USER, // host email address
+        pass: process.env.NODEMAILER_APP_PASSWORD, // host app password(use app password, if don't have , got to google accout> enable two step verification>  go to app password and generate password)
       },
     })
     let info = await transporter.sendMail({
