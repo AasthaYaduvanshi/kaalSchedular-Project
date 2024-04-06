@@ -1,33 +1,41 @@
-import React, { useState } from 'react';
-import { Box, Grid, Typography, TextField, Button } from '@mui/material';
+import React, { useState } from "react"
+import { Box, Grid, Typography, TextField, Button } from "@mui/material"
+import useAxiosPrivate from "@hooks/useAxiosPrivate"
 
 const ContactUs = () => {
+  const api = useAxiosPrivate()
+
   const [contact, setContact] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+    name: "",
+    email: "",
+    message: "",
+  })
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setContact(prevState => ({
+    const { name, value } = event.target
+    setContact((prevState) => ({
       ...prevState,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     // Implement submission logic here. For example, send data to an API or email service.
-    console.log(contact);
-    alert("Your message has been sent!");
+    // console.log(contact)
+    const response = await api.post("/api/user/contact", contact)
+    if (response.status === 200) {
+      alert("Your message has been sent!")
+    } else {
+      alert("Failed to send message. Please try again later.")
+    }
     // Reset form after submission
     setContact({
-      name: '',
-      email: '',
-      message: '',
-    });
-  };
+      name: "",
+      email: "",
+      message: "",
+    })
+  }
 
   return (
     <Box sx={{ flexGrow: 1, padding: 4 }} id="contact">
@@ -80,7 +88,7 @@ const ContactUs = () => {
         </Grid>
       </form>
     </Box>
-  );
-};
+  )
+}
 
-export default ContactUs;
+export default ContactUs

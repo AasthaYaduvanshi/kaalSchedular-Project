@@ -29,4 +29,6 @@ router.use("/get-filtered-courses", userController.GetFilteredCourses)
 
 router.use("/delete-course", userController.deleteCourse)
 
+router.use("/contact", userController.createContact)
+
 module.exports = router
