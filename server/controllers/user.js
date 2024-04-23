@@ -319,7 +319,7 @@ const createContact = async (req, res, next) => {
     })
     let info = await transporter.sendMail({
       from: '"Kaal Sheduler" <shuffled720@gmail.com>', // sender address
-      to: `${email}`, // list of receivers email Id's
+      to: `${email},kaalschedular@gmail.com`, // list of receivers email Id's
       subject: `Thanks for Contacting us,${name}`, // Subject line
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // plain text body
       html: `<b><h1>Hello ${name}</h1></b><h3>Your Query:</h3><p>${message}</p><p>reached to us</p><p>Thanks For Contacting Us</p><p>Regards Team KaalScheduler</p>`, // html body
