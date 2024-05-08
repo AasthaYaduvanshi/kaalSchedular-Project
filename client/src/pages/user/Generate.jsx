@@ -361,14 +361,16 @@ export default function Generate() {
 
   return showTts ? (
     <div>
-      {Object.entries(timetables).map(([courseName, timetable]) => {
+      {Object.entries(timetables).map(([courseName, timetable], i) => {
         const maxLectures = Math.max(
           ...Object.values(timetable).map((day) => day.length)
         )
 
         return (
           <div key={courseName}>
-            <h2>{courseName}</h2>
+            <h2>
+              {courseName}/Room Number:{selectedRooms[i]}
+            </h2>
             <TableContainer
               component={Paper}
               style={{ maxWidth: "90vw", overflow: "scroll" }}
