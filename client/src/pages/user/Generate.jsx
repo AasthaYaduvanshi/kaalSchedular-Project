@@ -379,7 +379,10 @@ export default function Generate() {
             <h2>
               {courseName}/Room Number:{selectedRooms[i]}
             </h2>
-            <TableContainer component={Paper} style={{ overflow: "scroll" }}>
+            <TableContainer
+              component={Paper}
+              style={{ maxWidth: "90vw", overflow: "scroll" }}
+            >
               <Table>
                 <TableHead>
                   <TableRow>
