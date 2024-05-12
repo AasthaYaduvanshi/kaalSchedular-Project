@@ -161,7 +161,7 @@ export default function FullWidthTabs() {
       }&pageSize=${rowsPerPageforclass}&userId=${user.userId}`
     )
     const data = response.data
-    console.log(data)
+    // console.log(data)
     setTotalPagesforClasses(data?.totalPages)
     setRooms(data?.rooms)
     setTotalCountforClasses(data?.totalCount)

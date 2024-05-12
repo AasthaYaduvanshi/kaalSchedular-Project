@@ -30,6 +30,8 @@ import { styled } from "@mui/system"
 import IconButton from "@mui/material/IconButton"
 import CloseIcon from "@mui/icons-material/Close"
 import TableRow from "@mui/material/TableRow"
+import AuthContext from "@contexts/AuthContext"
+
 import {
   IconArrowBigUpLine,
   IconArrowBigDownLine,
@@ -39,10 +41,12 @@ import {
 import toast from "react-hot-toast"
 import { IconTrash } from "@tabler/icons"
 import Close from "@mui/icons-material/Close"
+////////////////////////////////////////////////////////EXPORTING FUNCTION///////////////////////////////////////////////
 export default function Generate() {
   const api = useAxiosPrivate()
   const [courses, Setcourses] = useState([])
   const [rooms, setRooms] = useState([])
+  const { user } = React.useContext(AuthContext)
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -55,7 +59,10 @@ export default function Generate() {
 
   useEffect(() => {
     const fetchRooms = async () => {
-      const response = await api.get("/api/user/get-all-rooms")
+      const response = await api.get(
+        `/api/user/get-all-rooms?id=${user.userId}`
+      )
+      console.log(response)
       setRooms(response.data.rooms)
     }
     fetchRooms()

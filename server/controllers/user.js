@@ -238,8 +238,9 @@ const getAllCourses = async (req, res) => {
 }
 
 const GetAllRooms = async (req, res) => {
+  const { id } = req.query
   try {
-    const rooms = await Room.find({})
+    const rooms = await Room.find({ userId: id })
     return res.status(200).json({ rooms })
   } catch (error) {
     return res.status(500).json({ message: error.message })
