@@ -13,15 +13,12 @@ import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import AdbIcon from "@mui/icons-material/Adb"
 import { Link } from "react-router-dom"
-// import useAuth from "@hooks/useAuth"
 
 import { ColorModeContext } from "@contexts/DarkModeContext"
 import { BRAND_NAME } from "components/data/constrain"
 import useAuth from "@hooks/useAuth"
-// const pages = ["Products", "Pricing", "Blog"]
 import companyLogo from "@assets/images/brand.png"
 const settings = [
-  // { title: "Dashboardsssssssssssssssssssss", url: "/user/dashboard" },
   { title: "Profile", url: "/user/profile" },
 ]
 function TestHeader() {

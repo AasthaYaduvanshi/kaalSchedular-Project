@@ -1,11 +1,8 @@
 import React, { useState } from "react"
 import { Box, Grid, Typography, TextField, Button } from "@mui/material"
 import axios from "@utils/axios"
-// import useAxiosPrivate from "@hooks/useAxiosPrivate"
 
 const ContactUs = () => {
-  // const api = useAxiosPrivate()
-
   const [contact, setContact] = useState({
     name: "",
     email: "",
@@ -22,8 +19,6 @@ const ContactUs = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    // Implement submission logic here. For example, send data to an API or email service.
-    // console.log(contact)
     const response = await axios.post(
       "https://emailer-umber.vercel.app/api/mail",
       contact

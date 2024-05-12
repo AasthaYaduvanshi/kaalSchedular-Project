@@ -1,12 +1,12 @@
-import { Suspense } from "react";
-import LoadingScreen from "@components/LoadingScreen";
+import { Suspense } from "react"
+import LoadingScreen from "@components/LoadingScreen"
 
 const Loadable = (Component) => (props) => {
   return (
     <Suspense fallback={<LoadingScreen />}>
       <Component {...props} />
     </Suspense>
-  );
-};
+  )
+}
 
-export default Loadable;
+export default Loadable

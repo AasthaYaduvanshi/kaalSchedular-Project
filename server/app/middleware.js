@@ -1,10 +1,10 @@
-const express = require("express");
-const cors = require("cors");
-const helmet = require("helmet");
-const cookieParser = require("cookie-parser");
-const rateLimit = require("express-rate-limit");
-const mongoSanitize = require("express-mongo-sanitize");
-const { requestLogger } = require("../middleware/logEvents");
+const express = require("express")
+const cors = require("cors")
+const helmet = require("helmet")
+const cookieParser = require("cookie-parser")
+const rateLimit = require("express-rate-limit")
+const mongoSanitize = require("express-mongo-sanitize")
+const { requestLogger } = require("../middleware/logEvents")
 
 const limiterOptions = {
   windowMs: 60 * 60 * 1000, // 60 minutes
@@ -12,7 +12,7 @@ const limiterOptions = {
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   message: "Too many request from this IP. Please try again after an hour",
-};
+}
 
 const middleware = [
   requestLogger, // logger custom middleware
@@ -27,6 +27,6 @@ const middleware = [
   cookieParser(),
   express.urlencoded({ extended: true }),
   mongoSanitize(), // sanitize request data
-];
+]
 
-module.exports = middleware;
+module.exports = middleware

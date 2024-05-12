@@ -1,11 +1,11 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material"
 
 const Dashboard = () => {
   return (
     <Container>
       <Typography variant="h4">Admin dashboard</Typography>
     </Container>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

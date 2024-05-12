@@ -1,3 +1,3 @@
 export function encodeQuery(value) {
-  return encodeURIComponent(value);
+  return encodeURIComponent(value)
 }

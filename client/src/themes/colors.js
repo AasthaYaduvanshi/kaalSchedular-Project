@@ -11,7 +11,7 @@ export const primary = {
   purple: "#A798FF",
   yellow: "#FF9777",
   link: "#0052D3",
-};
+}
 
 export const secondary = {
   100: "#C0D5DA",
@@ -25,28 +25,28 @@ export const secondary = {
   red: "#FF6B93",
   purple: "#A798FF",
   yellow: "#FF9777",
-};
+}
 
 export const error = {
   main: "#FD396D",
-};
+}
 
 export const success = {
   main: "#00C851",
-};
+}
 
 export const warning = {
   main: "#FFE91F",
   dark: "#FFD600",
-};
+}
 
 export const info = {
   main: "#A798FF",
-};
+}
 
 export const text = {
   primary: secondary[500],
   secondary: secondary[400],
   disabled: secondary[300],
   link: primary.link,
-};
+}

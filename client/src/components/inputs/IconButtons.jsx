@@ -1,5 +1,5 @@
-import IconButton from "@mui/material/IconButton";
-import { AddIcon, DeleteIcon, EditIcon } from "assets/icons";
+import IconButton from "@mui/material/IconButton"
+import { AddIcon, DeleteIcon, EditIcon } from "assets/icons"
 
 export const DeleteIconButton = (props) => {
   return (
@@ -10,8 +10,8 @@ export const DeleteIconButton = (props) => {
     >
       <DeleteIcon />
     </IconButton>
-  );
-};
+  )
+}
 
 export const EditIconButton = (props) => {
   return (
@@ -22,8 +22,8 @@ export const EditIconButton = (props) => {
     >
       <EditIcon />
     </IconButton>
-  );
-};
+  )
+}
 
 export const AddIconButton = (props) => {
   return (
@@ -34,5 +34,5 @@ export const AddIconButton = (props) => {
     >
       <AddIcon />
     </IconButton>
-  );
-};
+  )
+}

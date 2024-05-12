@@ -1,7 +1,7 @@
-import BaseLayout from "@components/layouts/base";
-import PublicGuard from "@routes/PublicGuard";
-import AccountBox from "@pages/auth/AccountBox";
-import Profile from "@pages/admin/Profile";
+import BaseLayout from "@components/layouts/base"
+import PublicGuard from "@routes/PublicGuard"
+import AccountBox from "@pages/auth/AccountBox"
+import Profile from "@pages/admin/Profile"
 const PublicRoutes = {
   element: (
     <PublicGuard>
@@ -26,6 +26,6 @@ const PublicRoutes = {
       ),
     },
   ],
-};
+}
 
-export default PublicRoutes;
+export default PublicRoutes

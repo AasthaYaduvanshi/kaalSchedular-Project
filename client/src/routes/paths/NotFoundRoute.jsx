@@ -1,7 +1,7 @@
-import BaseLayout from "@components/layouts/base";
-import PublicGuard from "@routes/PublicGuard";
-import NotFound from "pages/404";
-import Unauthorized from "pages/Unauthorized";
+import BaseLayout from "@components/layouts/base"
+import PublicGuard from "@routes/PublicGuard"
+import NotFound from "pages/404"
+import Unauthorized from "pages/Unauthorized"
 
 const NotFoundRoutes = {
   element: (
@@ -19,6 +19,6 @@ const NotFoundRoutes = {
       element: <Unauthorized />,
     },
   ],
-};
+}
 
-export default NotFoundRoutes;
+export default NotFoundRoutes

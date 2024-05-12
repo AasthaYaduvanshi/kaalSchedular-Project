@@ -1,14 +1,14 @@
-import { Navigate, NavLink } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import accessDeniedImg from "assets/images/access_denied.png";
-import useAuth from "@hooks/useAuth";
+import { Navigate, NavLink } from "react-router-dom"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import accessDeniedImg from "assets/images/access_denied.png"
+import useAuth from "@hooks/useAuth"
 
 const Unauthorized = () => {
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated } = useAuth()
 
   if (!isAuthenticated) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/" replace />
   }
 
   return (
@@ -48,7 +48,7 @@ const Unauthorized = () => {
         </Box>
       </NavLink>
     </Box>
-  );
-};
+  )
+}
 
-export default Unauthorized;
+export default Unauthorized

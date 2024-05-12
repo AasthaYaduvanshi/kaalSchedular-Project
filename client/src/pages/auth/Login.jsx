@@ -1,26 +1,26 @@
-import { useState } from "react";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import LoadingButton from "@mui/lab/LoadingButton";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import FormHelperText from "@mui/material/FormHelperText";
-import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
-import Link from "@mui/material/Link";
-import Paper from "@mui/material/Paper";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import { IconLockOpen } from "@tabler/icons";
-import { catchError } from "@utils/catchError";
-import useAuth from "hooks/useAuth";
-import usePageTitle from "hooks/usePageTitle";
-import { Controller, useForm } from "react-hook-form";
-import { Link as RouteLink } from "react-router-dom";
+import { useState } from "react"
+import * as z from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import Visibility from "@mui/icons-material/Visibility"
+import VisibilityOff from "@mui/icons-material/VisibilityOff"
+import LoadingButton from "@mui/lab/LoadingButton"
+import Avatar from "@mui/material/Avatar"
+import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
+import Container from "@mui/material/Container"
+import FormHelperText from "@mui/material/FormHelperText"
+import IconButton from "@mui/material/IconButton"
+import InputAdornment from "@mui/material/InputAdornment"
+import Link from "@mui/material/Link"
+import Paper from "@mui/material/Paper"
+import TextField from "@mui/material/TextField"
+import Typography from "@mui/material/Typography"
+import { IconLockOpen } from "@tabler/icons"
+import { catchError } from "@utils/catchError"
+import useAuth from "hooks/useAuth"
+import usePageTitle from "hooks/usePageTitle"
+import { Controller, useForm } from "react-hook-form"
+import { Link as RouteLink } from "react-router-dom"
 
 const schema = z.object({
   userName: z
@@ -33,19 +33,19 @@ const schema = z.object({
     .trim()
     .min(6, "Password should be minimum of 6 characters")
     .max(40, "Must be 40 or fewer characters long"),
-});
+})
 
 const defaultValues = {
   userName: "",
   password: "",
-};
+}
 
 export default function SignIn() {
-  usePageTitle("Login");
-  const [toggleShowPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const { login } = useAuth();
+  usePageTitle("Login")
+  const [toggleShowPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const { login } = useAuth()
 
   const {
     control,
@@ -54,24 +54,24 @@ export default function SignIn() {
   } = useForm({
     resolver: zodResolver(schema),
     defaultValues,
-  });
+  })
 
   //toggle show password
   const handleClickShowPassword = () => {
-    setShowPassword((prev) => !prev);
-  };
+    setShowPassword((prev) => !prev)
+  }
 
   // on Submit
   const onSubmit = async (data) => {
     try {
-      setLoading(true);
+      setLoading(true)
 
-      await login(data.userName, data.password);
+      await login(data.userName, data.password)
     } catch (error) {
-      setError(catchError(error));
-      setLoading(false);
+      setError(catchError(error))
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <Container maxWidth="sm">
@@ -166,5 +166,5 @@ export default function SignIn() {
         </Box>
       </Paper>
     </Container>
-  );
+  )
 }

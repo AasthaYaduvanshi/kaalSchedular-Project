@@ -1,20 +1,20 @@
-import { useState } from "react";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, Controller } from "react-hook-form";
-import { Link as RouteLink } from "react-router-dom";
-import Link from "@mui/material/Link";
-import PageTitle from "@components/typography/PageTitle";
-import TextField from "@mui/material/TextField";
-import Container from "@mui/material/Container";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-import axios from "@utils/axios";
-import { toast } from "react-hot-toast";
-import { catchError } from "@utils/catchError";
-import usePageTitle from "@hooks/usePageTitle";
-import { FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
-import Flexbox from "@components/typography/Flexbox";
+import { useState } from "react"
+import * as z from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm, Controller } from "react-hook-form"
+import { Link as RouteLink } from "react-router-dom"
+import Link from "@mui/material/Link"
+import PageTitle from "@components/typography/PageTitle"
+import TextField from "@mui/material/TextField"
+import Container from "@mui/material/Container"
+import Paper from "@mui/material/Paper"
+import Button from "@mui/material/Button"
+import axios from "@utils/axios"
+import { toast } from "react-hot-toast"
+import { catchError } from "@utils/catchError"
+import usePageTitle from "@hooks/usePageTitle"
+import { FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material"
+import Flexbox from "@components/typography/Flexbox"
 
 const signupSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -29,7 +29,7 @@ const signupSchema = z.object({
     .max(20, "Username maximum 20 characters"),
   password: z.string().min(6, "Password minimum 6 characters"),
   role: z.enum(["user", "admin"]),
-});
+})
 
 const defaultValues = {
   name: "",
@@ -37,11 +37,11 @@ const defaultValues = {
   userName: "",
   password: "",
   role: "user",
-};
+}
 
 const Signup = () => {
-  usePageTitle("Create account");
-  const [submitting, setSubmitting] = useState(false);
+  usePageTitle("Create account")
+  const [submitting, setSubmitting] = useState(false)
   const {
     control,
     formState: { errors },
@@ -50,25 +50,25 @@ const Signup = () => {
   } = useForm({
     resolver: zodResolver(signupSchema),
     defaultValues,
-  });
+  })
 
   const onSubmit = async (data) => {
-    setSubmitting(true);
+    setSubmitting(true)
 
-    const response = axios.post("/api/auth/signup", data);
+    const response = axios.post("/api/auth/signup", data)
 
     toast.promise(response, {
       loading: "Saving...",
       success: ({ data }) => {
-        reset(defaultValues);
-        return data.message;
+        reset(defaultValues)
+        return data.message
       },
       error: (error) => {
-        setSubmitting(false);
-        return catchError(error);
+        setSubmitting(false)
+        return catchError(error)
       },
-    });
-  };
+    })
+  }
 
   return (
     <Container maxWidth="md" sx={{ paddingY: "1rem" }}>
@@ -172,7 +172,7 @@ const Signup = () => {
         <RouteLink to="/login">Already have an account? Sign in</RouteLink>
       </Link>
     </Container>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

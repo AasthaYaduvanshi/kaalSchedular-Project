@@ -1,10 +1,10 @@
 const pickProperties = (values, keys) => {
   return keys.reduce((obj, key) => {
     if (values && Object.prototype.hasOwnProperty.call(values, key)) {
-      obj[key] = values[key];
+      obj[key] = values[key]
     }
-    return obj;
-  }, {});
-};
+    return obj
+  }, {})
+}
 
-module.exports = pickProperties;
+module.exports = pickProperties
