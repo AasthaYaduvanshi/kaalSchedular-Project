@@ -21,7 +21,7 @@ import useAuth from "@hooks/useAuth"
 // const pages = ["Products", "Pricing", "Blog"]
 import companyLogo from "@assets/images/brand.png"
 const settings = [
-  { title: "Dashboard", url: "/user/dashboard" },
+  // { title: "Dashboardsssssssssssssssssssss", url: "/user/dashboard" },
   { title: "Profile", url: "/user/profile" },
 ]
 function TestHeader() {
