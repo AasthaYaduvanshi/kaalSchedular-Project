@@ -41,6 +41,7 @@ import {
 import toast from "react-hot-toast"
 import { IconTrash } from "@tabler/icons"
 import Close from "@mui/icons-material/Close"
+import { Hidden } from "@mui/material"
 ////////////////////////////////////////////////////////EXPORTING FUNCTION///////////////////////////////////////////////
 export default function Generate() {
   const api = useAxiosPrivate()
@@ -378,10 +379,7 @@ export default function Generate() {
             <h2>
               {courseName}/Room Number:{selectedRooms[i]}
             </h2>
-            <TableContainer
-              component={Paper}
-              style={{ maxWidth: "90vw", overflow: "scroll" }}
-            >
+            <TableContainer component={Paper} style={{ overflow: "scroll" }}>
               <Table>
                 <TableHead>
                   <TableRow>
@@ -445,18 +443,40 @@ export default function Generate() {
                         )
                         return (
                           <TableCell key={day}>
-                            <ul style={{ listStyle: "none" }}>
+                            <div>
                               {lecturesForDayAndTimeSlot.map(
                                 (lecture, index) => (
-                                  <li key={index}>
-                                    {lecture.subject} ({lecture.teacher})
-                                  </li>
+                                  <div
+                                    key={index}
+                                    style={{
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        fontSize: "1.7rem",
+                                        fontFamily: "caudex",
+                                      }}
+                                    >
+                                      {lecture.subject}
+                                    </div>
+                                    <div
+                                      style={{
+                                        fontFamily: "Ubuntu",
+                                        fontSize: "0.7rem",
+                                        color: "#4c4c4c",
+                                      }}
+                                    >
+                                      {lecture.teacher}
+                                    </div>
+                                  </div>
                                 )
                               )}
                               {lecturesForDayAndTimeSlot.length === 0 && (
                                 <div>&nbsp;</div>
                               )}
-                            </ul>
+                            </div>
                           </TableCell>
                         )
                       })}
