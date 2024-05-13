@@ -458,17 +458,17 @@ export default function Generate() {
                                   >
                                     <div
                                       style={{
-                                        fontSize: "1.7rem",
-                                        fontFamily: "caudex",
+                                        fontSize: "1.5rem",
+                                        // fontFamily: "caudex",
                                       }}
                                     >
                                       {lecture.subject}
                                     </div>
                                     <div
                                       style={{
-                                        fontFamily: "Ubuntu",
-                                        fontSize: "0.7rem",
-                                        color: "#4c4c4c",
+                                        // fontFamily: "Ubuntu",
+                                        fontSize: "0.9rem",
+                                        color: "#696969",
                                       }}
                                     >
                                       {lecture.teacher}
