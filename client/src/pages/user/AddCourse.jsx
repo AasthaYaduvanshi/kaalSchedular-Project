@@ -295,6 +295,7 @@ export default function AddCourse() {
       let obj = {
         name: data.course,
         subjects: teachersAndSubs,
+        id: user.userId,
       }
       if (numberofSubjects == teachersAndSubs.length) {
         const response = await api.post("/api/user/create-course", obj)

@@ -51,7 +51,7 @@ export default function Generate() {
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const response = await api.get("/api/user/get-courses")
+      const response = await api.get(`/api/user/get-courses?id=${user.userId}`)
       Setcourses(response?.data?.courses)
       setFirstSelectValue(response?.data?.courses[0]?.name)
     }

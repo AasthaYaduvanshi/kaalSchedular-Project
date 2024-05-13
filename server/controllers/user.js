@@ -203,9 +203,10 @@ const FetchAllTeachers = async (req, res, next) => {
 }
 
 const createCourse = async (req, res) => {
+
   try {
-    const { name, subjects } = req.body
-    const newCourse = await Course.create({ name, subjects })
+    const { name, subjects,id } = req.body
+    const newCourse = await Course.create({ name, subjects,userId:id })
 
     for (const subject of subjects) {
       const { teacher } = subject
@@ -229,8 +230,10 @@ const createCourse = async (req, res) => {
 }
 
 const getAllCourses = async (req, res) => {
+  const { id } = req.query
+
   try {
-    const courses = await Course.find().lean()
+    const courses = await Course.find({ userId: id }).lean()
     return res.status(200).json({ courses })
   } catch (error) {
     return res.status(500).json({ message: error.message })

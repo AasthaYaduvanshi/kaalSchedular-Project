@@ -2,6 +2,11 @@ const bcrypt = require("bcryptjs")
 const { model, Schema } = require("mongoose")
 
 const courseSchema = Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   name: {
     type: String,
     required: true,
