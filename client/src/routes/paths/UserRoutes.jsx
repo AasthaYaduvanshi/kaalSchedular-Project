@@ -1,10 +1,10 @@
-import { lazy } from "react";
-import Loadable from "../Loadable";
-import UserLayout from "@components/layouts/user";
-import AuthGuard from "../AuthGuard";
-import Home from "@pages/user/Home";
-const Profile = Loadable(lazy(() => import("@pages/user/Profile")));
-const Dashboard = Loadable(lazy(() => import("@pages/user/Dashboard")));
+import { lazy } from "react"
+import Loadable from "../Loadable"
+import UserLayout from "@components/layouts/user"
+import AuthGuard from "../AuthGuard"
+import Home from "@pages/user/Home"
+const Profile = Loadable(lazy(() => import("@pages/user/Profile")))
+const Dashboard = Loadable(lazy(() => import("@pages/user/Dashboard")))
 
 const UserRoutes = {
   element: (
@@ -22,10 +22,10 @@ const UserRoutes = {
       element: <Home />,
     },
     {
-      path:"user/profile",
-      element:<Profile/>
-    }
+      path: "user/profile",
+      element: <Profile />,
+    },
   ],
-};
+}
 
-export default UserRoutes;
+export default UserRoutes

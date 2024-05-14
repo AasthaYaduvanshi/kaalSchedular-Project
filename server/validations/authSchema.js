@@ -1,4 +1,4 @@
-const z = require("zod");
+const z = require("zod")
 
 const login = {
   body: z.object({
@@ -16,7 +16,7 @@ const login = {
       })
       .min(6, "Password minimum 6 characters"),
   }),
-};
+}
 
 const signup = {
   body: z.object({
@@ -46,9 +46,9 @@ const signup = {
       .min(6, "Password minimum 6 characters"),
     role: z.enum(["user", "admin"]),
   }),
-};
+}
 
 module.exports = {
   login,
   signup,
-};
+}

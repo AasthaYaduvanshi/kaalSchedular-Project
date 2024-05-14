@@ -1,6 +1,6 @@
-const dotenv = require("dotenv");
+const dotenv = require("dotenv")
 
-dotenv.config();
+dotenv.config()
 
 module.exports = {
   port: process.env.PORT || 8000,
@@ -10,4 +10,4 @@ module.exports = {
     access: process.env.ACCESS_TOKEN_SECRET,
     refresh: process.env.REFRESH_TOKEN_SECRET,
   },
-};
+}

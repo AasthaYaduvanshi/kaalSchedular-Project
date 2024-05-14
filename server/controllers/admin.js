@@ -1,17 +1,17 @@
-const Auth = require("../models/Auth");
+const Auth = require("../models/Auth")
 
 const profile = async (req, res, next) => {
   try {
-    const user = req.user;
+    const user = req.user
 
     const data = await Auth.findOne({ userName: user.userName }).select(
       "name email"
-    );
+    )
 
-    return res.json(data);
+    return res.json(data)
   } catch (error) {
-    next(error);
+    next(error)
   }
-};
+}
 
-module.exports = { profile };
+module.exports = { profile }

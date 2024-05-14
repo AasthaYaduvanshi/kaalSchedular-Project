@@ -1,10 +1,13 @@
-import React from 'react';
-import { Box, Container, Grid, Typography, IconButton } from '@mui/material';
-import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
+import React from "react"
+import { Box, Container, Grid, Typography, IconButton } from "@mui/material"
+import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material"
 
 const Footer = () => {
   return (
-    <Box component="footer" sx={{ backgroundColor: '#f9ac06', color: 'white', py: 3 }}>
+    <Box
+      component="footer"
+      sx={{ backgroundColor: "#f9ac06", color: "white", py: 3 }}
+    >
       <Container maxWidth="lg">
         <Grid container spacing={5}>
           <Grid item xs={12} sm={4}>
@@ -46,7 +49,7 @@ const Footer = () => {
         </Box>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

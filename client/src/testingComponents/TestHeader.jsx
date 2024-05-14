@@ -12,18 +12,23 @@ import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import AdbIcon from "@mui/icons-material/Adb"
+// import Link from "@mui/material/Link"
 import { Link } from "react-router-dom"
 
 import { ColorModeContext } from "@contexts/DarkModeContext"
-import { BRAND_NAME } from "components/data/constrain"
+import {
+  APPBAR_DESKTOP,
+  APPBAR_MOBILE,
+  BRAND_NAME,
+} from "components/data/constrain"
 import useAuth from "@hooks/useAuth"
+const pages = ["Products", "Pricing", "Blog"]
 import companyLogo from "@assets/images/brand.png"
 const settings = [
+  { title: "Dashboard", url: "/user/dashboard" },
   { title: "Profile", url: "/user/profile" },
 ]
 function TestHeader() {
-  const { logout } = useAuth()
-
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
@@ -97,16 +102,16 @@ function TestHeader() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {/* {pages.map((page) => (
+              {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))} */}
+              ))}
             </Menu>
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {/* {pages.map((page) => (
+            {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -114,7 +119,7 @@ function TestHeader() {
               >
                 {page}
               </Button>
-            ))} */}
+            ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -156,17 +161,6 @@ function TestHeader() {
                   </Link>
                 </>
               ))}
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Link
-                  style={{
-                    textDecoration: "none",
-                    color: darkMode ? "#fff" : "#000",
-                  }}
-                  onClick={logout}
-                >
-                  Logout
-                </Link>
-              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

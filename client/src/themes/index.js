@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from "@mui/material"
 import {
   error,
   info,
@@ -7,9 +7,9 @@ import {
   text,
   success,
   warning,
-} from "./colors";
+} from "./colors"
 
-const fontSize = 15;
+const fontSize = 15
 
 const baseOptions = {
   direction: "ltr",
@@ -271,7 +271,7 @@ const baseOptions = {
     h3: {
       fontWeight: 600,
       fontSize: "2.25rem",
-      color: "#FFF"
+      color: "#FFF",
     },
     h4: {
       fontWeight: 600,
@@ -290,18 +290,17 @@ const baseOptions = {
     },
     body1: { fontSize },
     body2: { fontSize },
-   
   },
-};
+}
 
 export const customTheme = () => {
-  const theme = createTheme(baseOptions);
+  const theme = createTheme(baseOptions)
 
   // theme shadows
-  theme.shadows[1] = "0px 4px 23px rgba(0, 0, 0, 0.12)";
-  theme.shadows[2] = "0px 0px 21px 1px rgba(0, 0, 0, 0.07)";
-  theme.shadows[3] = "0px 10px 30px rgba(0, 0, 0, 0.1)";
-  theme.shadows[4] = "0px 7px 30px 3px rgba(0, 0, 0, 0.05)";
+  theme.shadows[1] = "0px 4px 23px rgba(0, 0, 0, 0.12)"
+  theme.shadows[2] = "0px 0px 21px 1px rgba(0, 0, 0, 0.07)"
+  theme.shadows[3] = "0px 10px 30px rgba(0, 0, 0, 0.1)"
+  theme.shadows[4] = "0px 7px 30px 3px rgba(0, 0, 0, 0.05)"
 
-  return theme;
-};
+  return theme
+}

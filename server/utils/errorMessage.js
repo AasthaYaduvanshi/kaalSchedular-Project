@@ -1,8 +1,8 @@
 const errorMessage = (message = "An error occurred", status = 500) => {
-  const error = new Error(message);
-  error.status = status;
+  const error = new Error(message)
+  error.status = status
 
-  return error;
-};
+  return error
+}
 
-module.exports = errorMessage;
+module.exports = errorMessage

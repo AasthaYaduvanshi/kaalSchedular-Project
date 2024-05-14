@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import notFoundImage from "assets/images/404-error-page.png";
-import useAuth from "@hooks/useAuth";
+import { NavLink } from "react-router-dom"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import notFoundImage from "assets/images/404-error-page.png"
+import useAuth from "@hooks/useAuth"
 
 const NotFound = () => {
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated } = useAuth()
 
   return (
     <Box
@@ -60,7 +60,7 @@ const NotFound = () => {
         </NavLink>
       )}
     </Box>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

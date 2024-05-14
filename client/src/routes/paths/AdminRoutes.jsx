@@ -1,10 +1,10 @@
-import { lazy } from "react";
-import Loadable from "../Loadable";
-import AdminLayout from "@components/layouts/admin";
-import AuthGuard from "../AuthGuard";
+import { lazy } from "react"
+import Loadable from "../Loadable"
+import AdminLayout from "@components/layouts/admin"
+import AuthGuard from "../AuthGuard"
 
-const Profile = Loadable(lazy(() => import("@pages/admin/Profile")));
-const Dashboard = Loadable(lazy(() => import("@pages/admin/Dashboard")));
+const Profile = Loadable(lazy(() => import("@pages/admin/Profile")))
+const Dashboard = Loadable(lazy(() => import("@pages/admin/Dashboard")))
 
 const AdminRoutes = {
   element: (
@@ -22,6 +22,6 @@ const AdminRoutes = {
       element: <Profile />,
     },
   ],
-};
+}
 
-export default AdminRoutes;
+export default AdminRoutes

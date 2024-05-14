@@ -1,14 +1,21 @@
-import React, { useContext, useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { AccountContext } from './AccountContext';
-import { BoxContainer, FormContainer, Input, LineText, SubmitButton, BoldLink } from "./common";
-import axios from "@utils/axios";
-import { toast } from "react-hot-toast";
-import { catchError } from "@utils/catchError";
-import usePageTitle from "@hooks/usePageTitle";
-import { ColorModeContext } from '@contexts/DarkModeContext';
+import React, { useContext, useState } from "react"
+import { useForm, Controller } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
+import { AccountContext } from "./AccountContext"
+import {
+  BoxContainer,
+  FormContainer,
+  Input,
+  LineText,
+  SubmitButton,
+  BoldLink,
+} from "./common"
+import axios from "@utils/axios"
+import { toast } from "react-hot-toast"
+import { catchError } from "@utils/catchError"
+import usePageTitle from "@hooks/usePageTitle"
+import { ColorModeContext } from "@contexts/DarkModeContext"
 
 const signupSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -23,7 +30,7 @@ const signupSchema = z.object({
     .max(20, "Username maximum 20 characters"),
   password: z.string().min(6, "Password minimum 6 characters"),
   role: z.enum(["user", "admin"]),
-});
+})
 
 const defaultValues = {
   name: "",
@@ -31,11 +38,11 @@ const defaultValues = {
   userName: "",
   password: "",
   role: "user",
-};
+}
 
 export function SignupForm(props) {
-  usePageTitle("Create account");
-  const [submitting, setSubmitting] = useState(false);
+  usePageTitle("Create account")
+  const [submitting, setSubmitting] = useState(false)
   const { darkMode } = useContext(ColorModeContext)
 
   const {
@@ -47,26 +54,26 @@ export function SignupForm(props) {
   } = useForm({
     resolver: zodResolver(signupSchema),
     defaultValues,
-  });
-  const { switchToSignin } = useContext(AccountContext);
+  })
+  const { switchToSignin } = useContext(AccountContext)
 
   const onSubmit = async (data) => {
-    setSubmitting(true);
+    setSubmitting(true)
 
-    const response = axios.post("/api/auth/signup", data);
+    const response = axios.post("/api/auth/signup", data)
 
     toast.promise(response, {
       loading: "Saving...",
       success: ({ data }) => {
-        reset(defaultValues);
-        return data.message;
+        reset(defaultValues)
+        return data.message
       },
       error: (error) => {
-        setSubmitting(false);
-        return catchError(error);
+        setSubmitting(false)
+        return catchError(error)
       },
-    });
-  };
+    })
+  }
 
   return (
     <BoxContainer>
@@ -77,9 +84,13 @@ export function SignupForm(props) {
               darkMode={darkMode}
               type="text"
               placeholder="Full name"
-              {...register('name')}
+              {...register("name")}
             />
-            {errors.name && <span style={{ fontSize: "0.6rem", color: "red" }}>{errors.name.message}</span>}
+            {errors.name && (
+              <span style={{ fontSize: "0.6rem", color: "red" }}>
+                {errors.name.message}
+              </span>
+            )}
           </div>
 
           <div style={{ marginBottom: "10px" }}>
@@ -87,51 +98,60 @@ export function SignupForm(props) {
               darkMode={darkMode}
               type="email"
               placeholder="Email"
-              {...register('email')}
+              {...register("email")}
             />
-            {errors.email && <span style={{ fontSize: "0.6rem", color: "red" }}>{errors.email.message}</span>}
+            {errors.email && (
+              <span style={{ fontSize: "0.6rem", color: "red" }}>
+                {errors.email.message}
+              </span>
+            )}
           </div>
           <div style={{ marginBottom: "10px" }}>
             <Input
               darkMode={darkMode}
               type="text"
               placeholder="Username"
-              {...register('userName', {
-                required: 'Username is required',
+              {...register("userName", {
+                required: "Username is required",
                 minLength: {
                   value: 5,
-                  message: 'Username should be at least 5 characters long',
+                  message: "Username should be at least 5 characters long",
                 },
                 maxLength: {
                   value: 20,
-                  message: 'Username should not exceed 20 characters',
+                  message: "Username should not exceed 20 characters",
                 },
               })}
             />
-            {errors.userName && <span style={{ fontSize: "0.6rem", color: "red" }}>{errors.userName.message}</span>}
+            {errors.userName && (
+              <span style={{ fontSize: "0.6rem", color: "red" }}>
+                {errors.userName.message}
+              </span>
+            )}
           </div>
           <div style={{ marginBottom: "10px" }}>
             <Input
               darkMode={darkMode}
               type="password"
               placeholder="Password"
-              {...register('password')}
+              {...register("password")}
             />
-            {errors.password && <span style={{ fontSize: "0.6rem", color: "red" }}>{errors.password.message}</span>}
+            {errors.password && (
+              <span style={{ fontSize: "0.6rem", color: "red" }}>
+                {errors.password.message}
+              </span>
+            )}
           </div>
-
-
 
           <SubmitButton type="submit">Signup</SubmitButton>
           <LineText>
-            Already have an account?{' '}
+            Already have an account?{" "}
             <BoldLink onClick={switchToSignin} href="#">
               Signin
             </BoldLink>
           </LineText>
         </form>
-
       </FormContainer>
     </BoxContainer>
-  );
+  )
 }

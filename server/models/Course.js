@@ -1,23 +1,29 @@
-const bcrypt = require("bcryptjs");
-const { model, Schema } = require("mongoose");
+const bcrypt = require("bcryptjs")
+const { model, Schema } = require("mongoose")
 
 const courseSchema = Schema({
-    name: {
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  subjects: [
+    {
+      name: {
         type: String,
         required: true,
-        unique: true
+      },
+      teacher: {
+        type: String,
+        required: true,
+      },
     },
-    subjects: [{
-        name: {
-            type: String,
-            required: true
-        },
-        teacher: {
-            type: String,
-            required: true
-        }
-    }],
-});
+  ],
+})
 
-module.exports = model('Course', courseSchema);
-
+module.exports = model("Course", courseSchema)

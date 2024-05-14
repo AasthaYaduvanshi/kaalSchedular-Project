@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
-import { styled } from "@mui/material/styles";
-import Header from "./Header";
-import { APPBAR_DESKTOP, APPBAR_MOBILE } from "components/data/constrain";
+import { Outlet } from "react-router-dom"
+import { styled } from "@mui/material/styles"
+import Header from "./Header"
+import { APPBAR_DESKTOP, APPBAR_MOBILE } from "components/data/constrain"
 
 const MainStyle = styled("main")(({ theme }) => ({
   flexGrow: 1,
@@ -20,7 +20,7 @@ const MainStyle = styled("main")(({ theme }) => ({
     paddingRight: 15,
     minHeight: "auto",
   },
-}));
+}))
 
 const AdminLayout = ({ children }) => {
   return (
@@ -28,7 +28,7 @@ const AdminLayout = ({ children }) => {
       <Header />
       <MainStyle>{children || <Outlet />}</MainStyle>
     </>
-  );
-};
+  )
+}
 
-export default AdminLayout;
+export default AdminLayout
