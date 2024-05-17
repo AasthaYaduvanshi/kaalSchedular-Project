@@ -1,6 +1,7 @@
 import BaseLayout from "@components/layouts/base"
 import PublicGuard from "@routes/PublicGuard"
-import AccountBox from "@pages/auth/AccountBox"
+import AccountBoxLogin from "@pages/auth/AccountBoxLogin"
+import AccountBoxSignup from "@pages/auth/AccountBoxSignup"
 import Profile from "@pages/admin/Profile"
 const PublicRoutes = {
   element: (
@@ -15,13 +16,13 @@ const PublicRoutes = {
     },
     {
       path: "/login",
-      element: <AccountBox />,
+      element: <AccountBoxLogin />,
     },
     {
       path: "/signup",
       element: (
         <PublicGuard>
-          <AccountBox />
+          <AccountBoxSignup />
         </PublicGuard>
       ),
     },
